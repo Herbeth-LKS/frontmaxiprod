@@ -1,6 +1,7 @@
-import { useState, useEffect } from "react";
-import api from "../services/api.ts";
-import { Person } from "../types";
+import { useState, useEffect } from 'react';
+
+import api from '../services/api.ts';
+import { Person } from '../types';
 
 export function usePeople() {
   const [people, setPeople] = useState<Person[]>([]);
@@ -13,13 +14,13 @@ export function usePeople() {
 
   const fetchPeople = async () => {
     setLoading(true);
-    setError(null); 
+    setError(null);
     try {
-      const response = await api.get<{ data: Person[] }>("/people/totals");
+      const response = await api.get<{ data: Person[] }>('/people/totals');
       setPeople(response.data.data);
     } catch (err) {
-      setError("Erro ao buscar pessoas.");
-      console.error("Error fetching people:", err);
+      setError('Erro ao buscar pessoas.');
+      console.error('Error fetching people:', err);
     } finally {
       setLoading(false);
     }
@@ -29,11 +30,11 @@ export function usePeople() {
     setLoading(true);
     setError(null);
     try {
-      await api.post("/people", person);
+      await api.post('/people', person);
       fetchPeople();
     } catch (err) {
-      setError("Erro ao adicionar pessoa.");
-      console.error("Error adding person:", err);
+      setError('Erro ao adicionar pessoa.');
+      console.error('Error adding person:', err);
     } finally {
       setLoading(false);
     }
@@ -46,8 +47,8 @@ export function usePeople() {
       await api.delete(`/people/${id}`);
       fetchPeople();
     } catch (err) {
-      setError("Erro ao excluir pessoa.");
-      console.error("Error deleting person:", err);
+      setError('Erro ao excluir pessoa.');
+      console.error('Error deleting person:', err);
     } finally {
       setLoading(false);
     }

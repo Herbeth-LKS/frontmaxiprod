@@ -1,6 +1,7 @@
-import { useState } from "react";
-import api from "../services/api.ts";
-import { Transaction } from "../types";
+import { useState } from 'react';
+
+import api from '../services/api.ts';
+import { Transaction } from '../types';
 
 export function useTransactions() {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -8,16 +9,14 @@ export function useTransactions() {
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
 
-
-
   const addTransaction = async (transaction: Transaction) => {
     setLoading(true);
     setError(null);
     try {
-      await api.post("/transactions", transaction);
+      await api.post('/transactions', transaction);
     } catch (err) {
-      setError("Erro ao adicionar transação.");
-      console.error("Error adding transaction:", err);
+      setError('Erro ao adicionar transação.');
+      console.error('Error adding transaction:', err);
     } finally {
       setLoading(false);
     }
