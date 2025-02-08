@@ -5,14 +5,12 @@ export interface Person {
   totalIncome: number;
   totalExpenses: number;
   balance: number;
-  details: {
-    id?: number;
-    name: string;
-    age: number;
-    totalIncome: number;
-    totalExpenses: number;
-    balance: number;
-  };
+}
+
+export interface FamillyBalance {
+  totalIncome: number;
+  totalExpenses: number;
+  totalBalance: number;
 }
 
 export interface Transaction {

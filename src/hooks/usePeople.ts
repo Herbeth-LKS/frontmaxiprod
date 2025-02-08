@@ -2,9 +2,12 @@ import { useState, useEffect } from 'react';
 
 import api from '../services/api.ts';
 import { Person } from '../types';
+import { FamillyBalance } from '../types';
 
 export function usePeople() {
   const [people, setPeople] = useState<Person[]>([]);
+  const [famillyBalance, setFamillyBalance] = useState<FamillyBalance[]>([]);
+
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
 
@@ -16,8 +19,12 @@ export function usePeople() {
     setLoading(true);
     setError(null);
     try {
-      const response = await api.get<{ data: Person[] }>('/people/totals');
+      const response = await api.get<{
+        data: Person[];
+        totals: FamillyBalance[];
+      }>('/people/totals');
       setPeople(response.data.data);
+      setFamillyBalance(response.data.totals);
     } catch (err) {
       setError('Erro ao buscar pessoas.');
       console.error('Error fetching people:', err);
@@ -54,5 +61,5 @@ export function usePeople() {
     }
   };
 
-  return { people, addPerson, deletePerson, loading, error };
+  return { people, famillyBalance, addPerson, deletePerson, loading, error };
 }

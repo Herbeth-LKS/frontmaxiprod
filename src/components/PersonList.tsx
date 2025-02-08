@@ -31,7 +31,24 @@ const PersonList: React.FC<PersonListProps> = ({ people, onDelete }) => {
           >
             <List.Item.Meta
               title={<Typography.Text strong>{person.name}</Typography.Text>}
-              description={`Age: ${person.age}`}
+              description={
+                <>
+                  <p>Age: {person.age}</p>
+                  <p style={{ color: 'green' }}>
+                    Total Income: {person.totalIncome}
+                  </p>
+                  <p style={{ color: 'red' }}>
+                    Total Expenses: {person.totalExpenses}
+                  </p>
+                  <p
+                    style={{
+                      color: person.balance >= 0 ? 'green' : 'red'
+                    }}
+                  >
+                    Balance: {person.balance}
+                  </p>
+                </>
+              }
             />
           </List.Item>
         )}
