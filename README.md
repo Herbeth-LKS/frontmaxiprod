@@ -1,46 +1,93 @@
-# Getting Started with Create React App
+## 🏗️ Fornt-End teste tecnico MaxiProd - Guia de Configuração e Execução  
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Este projeto é uma aplicação **React** que consome uma API externa. Aqui você encontrará instruções detalhadas sobre como instalar, configurar e rodar o projeto usando **Yarn** ou **npm**.
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## 📋 Pré-requisitos  
 
-### `npm start`
+Antes de começar, verifique se você tem as seguintes ferramentas instaladas no seu ambiente:  
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- **[Node.js](https://nodejs.org/)** (versão 18.20.3 ou superior)  
+- **[Yarn](https://yarnpkg.com/) (Opcional)** – Se preferir usar Yarn ao invés do npm  
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Para verificar as versões instaladas, use:  
 
-### `npm test`
+```sh
+node -v
+npm -v
+yarn -v
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Se precisar instalar o **Yarn**, execute:  
 
-### `npm run build`
+```sh
+npm install --global yarn
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+---
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## 📦 Configuração do Ambiente  
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Antes de rodar o projeto, defina as variáveis de ambiente.  
 
-### `npm run eject`
+1. **Crie um arquivo `.env` na raiz do projeto:**  
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+```sh
+touch .env
+```
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+2. **Edite o `.env` e configure a URL da API:**  
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+```env
+REACT_APP_API_URL=http://localhost:5555/api
+```
+---
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## 🚀 Como Rodar o Projeto  
 
-## Learn More
+### 🔹 Usando Yarn  
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```sh
+yarn install      # Instala as dependências  
+yarn start          # Inicia o servidor de desenvolvimento  
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### 🔹 Usando npm  
+
+```sh
+npm install       # Instala as dependências  
+npm run start       # Inicia o servidor de desenvolvimento  
+```
+
+O projeto rodará por padrão em **http://localhost:3000/**.  
+
+---
+
+## 📜 Scripts Disponíveis  
+
+Além do comando `dev`, você pode executar:  
+
+| Comando                  | Descrição |
+|--------------------------|-----------|
+| `yarn build` / `npm run build` | Gera os arquivos para produção |
+| `yarn start` / `npm run start` | Inicia o servidor em produção |
+| `yarn lint` / `npm run lint` | Verifica erros de código |
+| `yarn test` / `npm run test` | Executa os testes unitários |
+| `yarn prettier-check` / `npm run prettier-check` | Verifica a formatação do codigo |
+| `yarn format` / `npm run format` | Corrige todos os erros de formatação |
+
+---
+
+## 🛠️ Tecnologias Utilizadas  
+
+- ⚛️ **React** - Biblioteca principal  
+- 🌍 **Axios** - Consumo de API  
+
+---
+
+## 🧐 Dúvidas?  
+
+Caso tenha alguma dúvida, sinta-se à vontade para abrir uma **issue** ou entrar em contato.  
+
+🚀 **Bons códigos!** 🎉
