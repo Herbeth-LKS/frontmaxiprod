@@ -22,5 +22,5 @@ export function useTransactions() {
     }
   };
 
-  return { transactions, addTransaction, loading, error };
+  return { transactions, addTransaction, loading, error, setError };
 }

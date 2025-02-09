@@ -19,7 +19,8 @@ function App() {
   const {
     addTransaction,
     loading: transactionsLoading,
-    error: transactionsError
+    error: transactionsError,
+    setError
   } = useTransactions();
   const [notification, setNotification] = useState<{
     message: string;
@@ -42,8 +43,18 @@ function App() {
   const handleAddTransaction = async (transaction: any) => {
     try {
       await addTransaction(transaction);
-      console.log('notidicacao');
-      showNotification('Transação adicionada com sucesso!', 'success');
+
+      if (transactionsError) {
+        showNotification(
+          'Error, Pessoas menores de 18 anos não podem adicionar transação do tipo income',
+          'error'
+        );
+        setError(null);
+      }
+      if (!transactionsError) {
+        showNotification('Transação adicionada com sucesso!', 'success');
+        setError(null);
+      }
     } catch (error) {
       showNotification('Erro ao adicionar transação!', 'error');
     }
